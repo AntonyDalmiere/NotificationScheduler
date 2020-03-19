@@ -65,7 +65,7 @@ After all the fields that you want are set just call build()!
 
 ```
 ## Documentation 
-Voir sur le [wiki](URLWiki).
+Voir sur le [wiki](https://github.com/AntonyDalmiere/NotificationScheduler/wiki).
 ## Credits
 
 Made by [Antony Dalmiere](https://github.com/AntonyDalmiere).

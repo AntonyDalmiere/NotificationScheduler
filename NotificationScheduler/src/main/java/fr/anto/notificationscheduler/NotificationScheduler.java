@@ -169,6 +169,7 @@ public class NotificationScheduler {
         public Builder(Context context){
             this.context = context;
         }
+
         /** Set the icon of the notification.
          * If not set the notification will not show up.
          * After android 5.0 the icon must be white on transparent background.
@@ -199,14 +200,32 @@ public class NotificationScheduler {
             return this;
         }
 
+        /** Create an item in the unfoldable menu of this notification.
+         * @param intent The intent to fire on click.
+         * @param text Text of item.
+         * @return The builder.
+         */
         public Builder addAction(Intent intent,String text){
             return addAction(intent,text,true,true);
         }
 
+        /** Create an item in the unfoldable menu of this notification.
+         * @param intent The intent to fire on click.
+         * @param text Text of item.
+         * @param dismiss Whether the notification disapear after item is clicked.
+         * @return The builder.
+         */
         public Builder addAction(Intent intent,String text,boolean dismiss){
             return addAction(intent,text,dismiss,true);
         }
 
+        /** Create an item in the unfoldable menu of this notification.
+         * @param intent The intent to fire on click.
+         * @param text Text of item.
+         * @param dismiss Whether the notification disapear after item is clicked.
+         * @param collapse Whether the notification close after click on item.
+         * @return The builder.
+         */
         public Builder addAction(Intent intent,String text,boolean dismiss,boolean collapse){
             /* To be sure user can start Activity from outside the app */
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -214,35 +233,66 @@ public class NotificationScheduler {
             return this;
         }
 
+        /** Set when the notification pup up.
+         * @param time A Date represents when the notification must pop up.
+         * @return The builder.
+         */
         public Builder time(Date time){
             this.time = time;
             return this;
         }
 
+        /** Set when the notification pup up.
+         * @param time A Calendar represents when the notification must pop up.
+         * @return The builder.
+         */
         public Builder time(Calendar time){
             this.time = time.getTime();
             return this;
         }
 
+        /** Set title of the notification.
+         * @param title The title of notification.
+         * @return The builder.
+         */
         public Builder title(String title){
             this.title = title;
             return this;
         }
 
+        /** Set content text of the notification.
+         * @param content The body of notification.
+         * @return The builder.
+         */
         public Builder content(String content){
             this.content = content;
             return this;
         }
+
+        /** Set the id of channel notification.
+         * @param idOfChannel ID of channel.
+         * @return The builder.
+         */
         public Builder channelID(String idOfChannel)
         {
             this.channel_id = idOfChannel;
             return this;
         }
+
+        /** Set group of the notification. Notifications with the same group name can be merged.
+         * @param nameOfGroup The group of notification.
+         * @return The builder.
+         */
         public Builder group(String nameOfGroup)
         {
             this.group = nameOfGroup;
             return this;
         }
+
+        /** Set the intent to be launched when click on notification.
+         * @param intent The intent to start.
+         * @return The builder.
+         */
         public Builder setClickAction(Intent intent)
         {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -250,6 +300,11 @@ public class NotificationScheduler {
             return this;
         }
 
+        /**
+         * Schedule the builded notification via this Builder.
+         * Must be run on ui thread.
+         * @return the id of created notification.
+         */
         @UiThread
         public long build(){
             Calendar cal = Calendar.getInstance();
@@ -271,7 +326,6 @@ public class NotificationScheduler {
             scheduleNotification(context,ret,cal.getTimeInMillis());
             return ret;
         }
-
     }
 
 }

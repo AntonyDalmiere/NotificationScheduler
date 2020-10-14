@@ -19,7 +19,7 @@ public abstract class NotificationDatabase extends RoomDatabase {
             synchronized (NotificationDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            NotificationDatabase.class, DATABASE_FILENAME).build();
+                            NotificationDatabase.class, DATABASE_FILENAME).allowMainThreadQueries().build();//We allow run query on UI threads because we make query at phone startup.
                 }
             }
         }

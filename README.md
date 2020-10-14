@@ -1,5 +1,5 @@
 # Notification Scheduler
-[![Android](https://img.shields.io/badge/platform-Android-green)](https://developer.android.com/)
+[![](https://jitpack.io/v/AntonyDalmiere/NotificationScheduler.svg)](https://jitpack.io/#AntonyDalmiere/NotificationScheduler)
 
 
 Une librairie Android simple qui permet de planifier des notifications même après un redémarrage. 

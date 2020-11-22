@@ -5,14 +5,14 @@
 Une librairie Android simple qui permet de planifier des notifications même après un redémarrage. 
 
 ## Introduction
-Quand on veux envoyer une notifications a une heures spécifiques cela demande beaucoup de code inutile, la création d'un broadcastReveiver , le stockage de la notification etc ... Cela résulte en l'a création de souvent 3 ou 4 classes pour juste envoyer une notification a une heure précise. Grâce à cette librairie cela ce fait en moins de 5lignes.👍
+Quand on veut envoyer une notification à une heure spécifique cela demande beaucoup de code inutile : la création d'un broadcastReveiver , le stockage de la notification etc ... Cela induit souvent la création de 3 ou 4 classes pour juste envoyer une notification. Grâce à cette librairie cela ce fait en moins de 5 lignes.👍
 ## Fonctionnalités
-- Planification a une heure précise 
+- Planification à une heure précise 
 - Précis même si l'appareil est en doze
-- Choisir la couleur de la notification 
-- Choisir l'icône de la notification 
+- Choix de la couleur de notification 
+- Choix de l'icône de notification 
 - Actions au click de la notification
-- Sous action 
+- Sous actions 
 - Planifications persistente même après un redémarrage 
 - Compatible NotificationChannel
 - Possibilité de définir des icônes larges pour les notifications 
@@ -57,7 +57,7 @@ Then set the fields you want.
   
 ```
 
-After all the fields that you want are set just call build()!
+After all the fields that you want are set, just call build()!
 
 ```java
 
